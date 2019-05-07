@@ -1,26 +1,27 @@
-const getOne = (req, res) => {
+const getItem = (req, res) => {
   console.log("get one");
 };
-const getAll = (req, res) => {
+
+const getInventory = (req, res) => {
   console.log("get all");
 };
 
-const createOne = (req, res) => {
+const createItem = (req, res) => {
   console.log("post one");
 };
 
-const updateOne = (req, res) => {
+const updateItemById = (req, res) => {
   console.log("update one");
 };
 
-const deleteOne = (req, res) => {
+const deleteItemById = (req, res) => {
   console.log("delete one");
 };
 
 module.exports = {
-  getOne,
-  getAll,
-  createOne,
-  updateOne,
-  deleteOne
+  getItem,
+  getInventory,
+  createItem,
+  updateItemById,
+  deleteItemById
 };

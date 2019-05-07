@@ -30,10 +30,9 @@ const config = require("./config");
 const port = config.port || 3400;
 const connect = require("./api/modules/db");
 const cors = require("cors");
-const itemsRouter = require("./api/resources/items");
+const itemsRouter = require("./api/resources/items/itemsRouter");
 
 const setupMiddware = require("./middleware");
-const router = express.Router();
 
 const app = express();
 

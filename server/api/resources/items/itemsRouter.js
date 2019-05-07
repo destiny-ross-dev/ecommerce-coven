@@ -1,10 +1,10 @@
 const { Router } = require("express");
 const {
-  getOne,
-  getAll,
-  createOne,
-  updateOne,
-  deleteOne
+  getItem,
+  getInventory,
+  createItem,
+  updateItemById,
+  deleteItemById
 } = require("./itemsController");
 
 const itemsRouter = Router();
@@ -12,14 +12,14 @@ const itemsRouter = Router();
 // /api/items
 itemsRouter
   .route("/")
-  .get(getAll)
-  .post(createOne);
+  .get(getInventory)
+  .post(createItem);
 
 // /api/items/:id
 itemsRouter
   .route("/:id")
-  .get(getOne)
-  .put(updateOne)
-  .delete(deleteOne);
+  .get(getItem)
+  .put(updateItemById)
+  .delete(deleteItemById);
 
 module.exports = itemsRouter;
