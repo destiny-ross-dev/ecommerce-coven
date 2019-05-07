@@ -1,9 +1,10 @@
-import express from "express";
-import { itemsRouter } from "./resources/items";
-import { apiErrorHandler } from "./modules/errorHandler";
+const express = require("express");
+const itemsRouter = require("./resources/items");
+const apiErrorHandler = require("./modules/errorHandler");
 
-export const restRouter = express.Router();
+const restRouter = express.Router();
 
-restRouter.use("/items", itemsRouter);
+restRouter.use("/items", () => console.log("items"));
 
-restRouter.use(apiErrorHandler);
+// module.exports = restRouter;
+module.exports = restRouter;

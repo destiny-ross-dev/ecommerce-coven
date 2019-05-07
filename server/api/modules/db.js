@@ -1,6 +1,5 @@
 const massive = require("massive");
-const appConfig = require("./config");
-// const app = require("../server");
+const appConfig = require("../../config");
 
 const connect = (app, config = appConfig) => {
   massive(appConfig.db)

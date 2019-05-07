@@ -1,32 +1,54 @@
-require("dotenv").config();
+// const express = require("express");
+// const setupMiddware = require("./middleware");
+// // import { restRouter, graphQLRouter } from "./api";
+// const connect = require("./api/modules/db");
+// // import { signin, protect } from "./api/modules/auth";
+// const restRouter = require("./api");
+// // Declare an app from express
+// const app = express();
+
+// const apiRouter = express.Router();
+
+// //api Router is mounted at /api (below);
+// apiRouter.use("/", restRouter);
+
+// setupMiddware(app);
+
+// connect(app);
+
+// // API
+
+// app.all("*", (req, res) => {
+//   res.json({ ok: true });
+// });
+
+// module.exports = app;
+
 const express = require("express");
+const { json, urlencoded } = require("body-parser");
+const config = require("./config");
+const port = config.port || 3400;
+const connect = require("./api/modules/db");
+const cors = require("cors");
+const itemsRouter = require("./api/resources/items");
+
 const setupMiddware = require("./middleware");
-// import { restRouter, graphQLRouter } from "./api";
-const connect = require("./db");
-// import { signin, protect } from "./api/modules/auth";
-// const itemsRoute = require("./api/routes/itemsRoute");
-// Declare an app from express
+const router = express.Router();
+
 const app = express();
 
-const apiRouter = express.Router();
-
-//api Router is mounted at /api (below);
-apiRouter.get("/", (req, res) => res.json({ api: true }));
-
 setupMiddware(app);
+app.use("/items", itemsRouter);
 
-connect(app);
+const start = async () => {
+  try {
+    await connect(app);
+    app.listen(port, () => {
+      console.log(`rest api on localhost:${port}/api`);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-// API
-
-// app.use("/signin", signin);
-// app.use("/api", protect, restRouter);
-// app.use("/graphql", graphQLRouter);
-// app.use("/docs", graphiqlExpress({ endpointURL: "/graphql" }));
-// catch all
-// app.use("/items", itemsRoute);
-app.all("*", (req, res) => {
-  res.json({ ok: true });
-});
-
-module.exports = app;
+module.exports = { start };
