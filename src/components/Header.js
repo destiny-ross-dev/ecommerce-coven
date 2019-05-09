@@ -50,7 +50,15 @@ class Header extends Component {
             <p>Calendar</p>
             <p>Blog</p>
             <p>Join the Coven</p>
-            <p>Sign In</p>
+            {this.props.user && this.props.user.first_name ? (
+              <a className="navlink login" href={process.env.REACT_APP_LOGOUT}>
+                Logout
+              </a>
+            ) : (
+              <a className="navlink login" href={process.env.REACT_APP_LOGIN}>
+                Login
+              </a>
+            )}
           </nav>
         </div>
 

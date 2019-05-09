@@ -35,7 +35,6 @@ const setGlobalMiddleware = app => {
   passport.use(strategy);
 
   passport.serializeUser((user, done) => {
-    // console.log(user);
     app
       .get("db")
       .auth.getUserByAuthID(user.id)

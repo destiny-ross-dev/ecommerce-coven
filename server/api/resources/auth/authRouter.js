@@ -1,6 +1,6 @@
 const passport = require("passport");
 const { Router } = require("express");
-const { logout } = require("./authController");
+const { logout, getUser } = require("./authController");
 
 const authRouter = Router();
 
@@ -15,9 +15,10 @@ authRouter.route(`/`).get(
   })
 );
 
+// GET /auth/me
+authRouter.route("/me").get(getUser);
+
 // GET /auth/logout
 authRouter.route("/logout").get(logout);
-
-//AUTH ENDPOINTS
 
 module.exports = authRouter;
