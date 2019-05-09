@@ -1,0 +1,19 @@
+.Link {
+  text-decoration: none;
+}
+
+.CategoriesList {
+  position: absolute;
+  left: 40%;
+  top: 30px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  list-style: none;
+
+  & .Link {
+    color: black;
+    border-bottom: 1px solid grey;
+  }
+}

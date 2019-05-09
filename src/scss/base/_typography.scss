@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Scritus Bold";
+  src: url("../assets/scritusbold.otf") format("opentype");
+}
+
+.Header {
+  &__Logo {
+    font-family: "Scritus Bold";
+  }
+
+  &__Navigation {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+}
+
+.Headline,
+.Title {
+  text-transform: capitalize;
+}

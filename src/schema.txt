@@ -1,0 +1,8 @@
+CREATE TABLE "public"."item_category" (
+    "category_id" serial,
+    "category_name" varchar(20),
+    "category_description" text,
+    "created_at" timestamp DEFAULT null,
+    "updated_at" timestamp DEFAULT null,
+    PRIMARY KEY ("category_id")
+);

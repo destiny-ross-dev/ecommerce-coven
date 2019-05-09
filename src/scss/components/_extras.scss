@@ -1,0 +1,50 @@
+.Extras {
+  &__Container {
+    // background: red;
+    height: 110vh;
+    width: 100%;
+    max-width: 1600px;
+    text-align: center;
+    padding: 10vh 0;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    margin: 0 auto;
+  }
+
+  &__Headline {
+    width: 100%;
+    margin: 0 0 2.5vh 0;
+  }
+  &__CatContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0vh 10vw;
+    justify-content: space-between;
+  }
+  &__CatThumbnail {
+    width: 35%;
+    height: 180px;
+    margin: 2vh 10px;
+    background-size: contain;
+    background-position: center;
+    // background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 30px;
+    box-shadow: 2px 4px 4px grey;
+    border: 1px solid black;
+
+    &--about {
+      background-image: url("../assets/runology.jpg");
+      flex-grow: 1;
+      width: 100%;
+    }
+    &--class {
+      background-image: url("../assets/tarotreading.jpg");
+    }
+  }
+}

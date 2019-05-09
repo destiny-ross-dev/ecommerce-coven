@@ -1,49 +1,26 @@
-// const express = require("express");
-// const setupMiddware = require("./middleware");
-// // import { restRouter, graphQLRouter } from "./api";
-// const connect = require("./api/modules/db");
-// // import { signin, protect } from "./api/modules/auth";
-// const restRouter = require("./api");
-// // Declare an app from express
-// const app = express();
-
-// const apiRouter = express.Router();
-
-// //api Router is mounted at /api (below);
-// apiRouter.use("/", restRouter);
-
-// setupMiddware(app);
-
-// connect(app);
-
-// // API
-
-// app.all("*", (req, res) => {
-//   res.json({ ok: true });
-// });
-
-// module.exports = app;
+// IMPORTS
 
 const express = require("express");
-const { json, urlencoded } = require("body-parser");
 const config = require("./config");
 const port = config.port || 3400;
 const connect = require("./api/modules/db");
-const cors = require("cors");
-const itemsRouter = require("./api/resources/items/itemsRouter");
-
 const setupMiddware = require("./middleware");
+const itemsRouter = require("./api/resources/items/itemsRouter");
+const authRouter = require("./api/resources/auth/authRouter");
 
+// Initializes express server
 const app = express();
 
+// Global middleware
 setupMiddware(app);
 app.use("/items", itemsRouter);
+app.use("/auth", authRouter);
 
 const start = async () => {
   try {
     await connect(app);
     app.listen(port, () => {
-      console.log(`rest api on localhost:${port}/api`);
+      console.log(`rest api on http://localhost:${port}/`);
     });
   } catch (e) {
     console.log(e);

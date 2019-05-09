@@ -1,0 +1,78 @@
+.ShopByCat {
+  &__Container {
+    // background: red;
+    height: 110vh;
+    width: 100%;
+    max-width: 1600px;
+    text-align: center;
+    padding: 10vh 0;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    margin: 0 auto;
+  }
+
+  &__Headline {
+    width: 100%;
+    margin: 0 0 2.5vh 0;
+  }
+  &__CatContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0vh 10vw;
+    justify-content: space-between;
+  }
+  &__CategoryThumbnail {
+    width: 27%;
+    height: 180px;
+    margin: 2vh 10px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 30px;
+    box-shadow: 2px 4px 4px grey;
+
+    & .CatLink {
+      color: white;
+      font-size: 16px;
+      border: 4px solid white;
+      padding: 10px 15px;
+      transition: 0.75s;
+
+      &:hover {
+        background: white;
+        color: black;
+        opacity: 0.3;
+      }
+    }
+
+    &--misc {
+      background-image: url("../assets/aesthetic-bones-crystal-herbs-Favim.com-5181930.jpeg");
+      background-position: 45%;
+      flex-grow: 1;
+    }
+    &--herbsandoils {
+      background-image: url("../assets/herbs.jpeg");
+    }
+    &--candles {
+      background-image: url("../assets/candles.png");
+    }
+
+    &--crystalsrunes {
+      background-image: url("../assets/crystals.jpg");
+    }
+    &--tarot {
+      background-image: url("../assets/tarot.jpg");
+    }
+    &--books {
+      background-image: url("../assets/books.jpeg");
+    }
+    &--altar {
+      background-image: url("../assets/altar.jpg");
+    }
+  }
+}
