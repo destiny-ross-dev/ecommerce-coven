@@ -13,7 +13,7 @@ const getUser = async (req, res) => {
       res.status(500).send(error);
     }
   } else {
-    console.log("unauthenticated");
+    console.log("Unauthenticated");
   }
 };
 

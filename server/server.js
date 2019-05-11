@@ -13,8 +13,8 @@ const app = express();
 
 // Global middleware
 setupMiddware(app);
-app.use("/items", itemsRouter);
 app.use("/auth", authRouter);
+app.use("/items", itemsRouter);
 
 const start = async () => {
   try {

@@ -1,0 +1,21 @@
+.Shop__Side-Bar {
+  background: lightgrey;
+  height: calc(100vh - 60px);
+  width: 275px;
+  padding: 30px 40px;
+}
+.Shop__Category-Div {
+  & p {
+    font-size: 12px;
+  }
+
+  &--space {
+    margin: 25vh 0 0 0;
+  }
+}
+.Shop__Category-Div-Header {
+  margin: 3vh 0;
+  font-size: 12px;
+  font-weight: 800;
+  // letter-spacing: 1px;
+}

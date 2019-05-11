@@ -4,12 +4,21 @@ import Extras from "../components/Extras";
 import { connect } from "react-redux";
 
 class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  state = {
+    scrollY: 0
+  };
+  logScroll = event => {
+    this.setState({ scrollY: window.scrollY });
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.logScroll);
   }
 
   render() {
+    let { scrollY } = this.state;
+    let browserHeight = window.innerHeight;
+    console.log(browserHeight, scrollY);
     return (
       <div className="Page Page__Landing">
         <ShopByCategory />

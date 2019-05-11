@@ -4,8 +4,14 @@ import { withRouter, NavLink as Link } from "react-router-dom";
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { showNavCats: false };
+    this.state = { showShoppingCategories: false };
   }
+  handleHover = () => {
+    this.setState({ showShoppingCategories: true });
+  };
+  handleLeave = () => {
+    this.setState({ showShoppingCategories: false });
+  };
   render() {
     return (
       <div className="Header">
@@ -14,38 +20,36 @@ class Header extends Component {
             <h1 className="Header__Logo">COVEN</h1>
           </Link>
           <nav className="Header__Navigation">
-            <p>About</p>
-            <div onMouseEnter={() => this.setState({ showNavCats: true })}>
-              Shop
-              {this.state.showNavCats && (
-                <div
-                  className="CategoriesList"
-                  onMouseOut={() => this.setState({ showNavCats: false })}
-                >
-                  <Link to="candles" className="Link">
-                    Candles
-                  </Link>
-                  <Link to="herbal" className="Link">
-                    <li>Herbs and Essential Oils</li>
-                  </Link>
-                  <Link to="tarot" className="Link">
-                    <li>Tarot</li>
-                  </Link>
-                  <Link to="books" className="Link">
-                    <li>Books</li>
-                  </Link>
-                  <Link to="crystals" className="Link">
-                    <li>Crystals and Runes</li>
-                  </Link>
-                  <Link to="altars" className="Link">
-                    <li>Altars and Tools</li>
-                  </Link>
-                  <Link to="misc" className="Link">
-                    <li>Miscellaneous</li>
-                  </Link>
+            <p className="Header__Navigation-Link">About</p>
+            <div
+              onMouseOver={this.handleHover}
+              onMouseLeave={this.handleLeave}
+              className="Header__Navigation-Div"
+            >
+              <p className="Header__Navigation-Link--Shop Header__Navigation-Link">
+                Shop
+              </p>
+              {this.state.showShoppingCategories && (
+                <div className="Header__Navigation-Categories--show">
+                  <p className="Header__Navigation-Categories-Link">Candles</p>
+                  <p className="Header__Navigation-Categories-Link">
+                    Herbs and Oils
+                  </p>
+                  <p className="Header__Navigation-Categories-Link">
+                    Crystals and Runes
+                  </p>
+                  <p className="Header__Navigation-Categories-Link">Tarot</p>
+                  <p className="Header__Navigation-Categories-Link">Books</p>
+                  <p className="Header__Navigation-Categories-Link">
+                    Altars and Tools
+                  </p>
+                  <p className="Header__Navigation-Categories-Link">
+                    Miscellaneous
+                  </p>
                 </div>
               )}
             </div>
+
             <p>Classes</p>
             <p>Calendar</p>
             <p>Blog</p>

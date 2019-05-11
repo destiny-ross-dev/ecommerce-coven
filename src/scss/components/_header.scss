@@ -1,68 +1,3 @@
-// .Header {
-//   display: flex;
-//   flex-direction: column;
-
-//   &__Bar {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     height: 50px;
-//     padding: 0 2.5vw;
-//   }
-
-//   &__Logo {
-//     font-size: 34px;
-//     width: 100px;
-//   }
-
-//   &__Navigation {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     align-items: center;
-//     width: 800px;
-//   }
-
-//   &__Hero {
-//     // height: 600px;
-//     min-height: calc(100vh - 120px);
-//     max-height: calc(100vh - 80px);
-//     width: 100vw;
-//     background-size: cover;
-//     background-position: bottom;
-//     background-image: url("../assets/aesthetic-bones-crystal-herbs-Favim.com-5181930.jpeg");
-
-//     color: white;
-
-//     &--text {
-//       width: 80%;
-//       margin: 30vh 10vw;
-//       display: flex;
-//       flex-direction: column;
-//       align-items: flex-end;
-//       // justify-content: flex-end;
-
-//       & > h2 {
-//         font-size: 50px;
-//       }
-//       & > p {
-//         margin: 5vh 0;
-//         width: 400px;
-//         text-align: right;
-//       }
-//       & > button {
-//         padding: 1vh 2vw;
-//         border-radius: 4px;
-//       }
-
-//       @media only screen and (min-width: 480px) {
-//         align-items: center;
-//         font-size: 12px;
-//       }
-//     }
-//   }
-// }
-
 /*==========  Mobile First Method  ==========*/
 .Header {
   display: flex;
@@ -75,9 +10,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    height: 60px;
     padding: 0 2.5vw;
     width: 100%;
+    position: sticky;
+    background: white;
+    top: 0;
+    border-bottom: 0.5px solid lightgray;
+    border-radius: 3px;
   }
 
   &__Logo {
@@ -93,7 +33,43 @@
     justify-content: space-between;
     align-items: center;
     width: 800px;
+    &-Div {
+      background: white;
+      position: relative;
+      height: fit-content;
+      width: fit-content;
+    }
 
+    &-Categories {
+      &-Link {
+        padding: 2vh 1vw;
+        background: white;
+        height: 45px;
+
+        font-size: 14px;
+        transform: 1s ease-in all;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.05s ease-in all;
+
+        &:hover {
+          background: #2f2e33;
+          color: white;
+          cursor: pointer;
+          transform: scale(1.15);
+          border-radius: 3px;
+        }
+      }
+      &--show {
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        left: -65.5px;
+        padding: 2vh 0 0vh 0;
+        width: 175px;
+      }
+    }
     @media only screen and (max-width: $width-s) {
       display: none;
     }
