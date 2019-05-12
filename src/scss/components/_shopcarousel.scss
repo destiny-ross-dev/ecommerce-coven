@@ -1,0 +1,40 @@
+.Shop__Carousel-Container {
+  background: #fafafa;
+  height: calc(100vh - 60px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+
+  & img {
+    width: 70%;
+  }
+}
+.Shop__Carousel-Title-Box {
+  background: white;
+  position: absolute;
+  top: 30px;
+  left: 60px;
+  // height: 120px;
+  padding: 4vh 6vw 4vh 3vw;
+  box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.25),
+    0 10px 10px 0 rgba(0, 0, 0, 0.26);
+  & h3 {
+    font-size: 12px;
+  }
+  & h2 {
+    font-size: 20px;
+    width: 70%;
+  }
+
+  & button {
+    background: #22324c;
+    color: white;
+    padding: 1.5vh 2vw;
+    border-radius: 3px;
+    font-size: 10px;
+    margin: 2vh 0 0 0;
+  }
+}
