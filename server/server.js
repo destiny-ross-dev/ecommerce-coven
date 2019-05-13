@@ -7,6 +7,7 @@ const connect = require("./api/modules/db");
 const setupMiddware = require("./middleware");
 const itemsRouter = require("./api/resources/items/itemsRouter");
 const authRouter = require("./api/resources/auth/authRouter");
+const cartRouter = require("./api/resources/cart/cartRouter");
 
 // Initializes express server
 const app = express();
@@ -15,6 +16,7 @@ const app = express();
 setupMiddware(app);
 app.use("/auth", authRouter);
 app.use("/items", itemsRouter);
+app.use("/cart", cartRouter);
 
 const start = async () => {
   try {
