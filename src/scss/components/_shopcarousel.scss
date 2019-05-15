@@ -1,32 +1,95 @@
-.Shop__Carousel-Container {
-  background: #fafafa;
+.Shop__Carousel {
   height: calc(100vh - 60px);
   width: 100%;
+  max-width: 1200px;
+  max-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+
   position: relative;
+  left: center;
+  right: center;
+  top: 0;
+  bottom: 0;
 
   & img {
-    width: 70%;
+    min-width: 78%;
+    // max-width: 78%;
+    height: 500px;
   }
 }
+
 .Shop__Carousel-Title-Box {
+  border-radius: 3px;
   background: white;
   position: absolute;
   top: 30px;
-  left: 60px;
+  left: 75px;
   // height: 120px;
-  padding: 4vh 6vw 4vh 3vw;
+  padding: 3vh 6vw 3vh 3vw;
   box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.25),
     0 10px 10px 0 rgba(0, 0, 0, 0.26);
   & h3 {
     font-size: 12px;
+    padding: 0 0 10px 0;
   }
   & h2 {
     font-size: 20px;
-    width: 70%;
+    width: 100%;
+  }
+
+  & button {
+    color: white;
+    padding: 1.5vh 2vw;
+    border-radius: 3px;
+    font-size: 10px;
+    margin: 2vh 0 0 0;
+    border: none;
+  }
+}
+.Shop__Carousel-Nav-Box {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  border-radius: 3px;
+  background: #f0efef;
+  border: none;
+  display: flex;
+  box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.25),
+    0 10px 10px 0 rgba(0, 0, 0, 0.26);
+  z-index: 1;
+
+  & button {
+    background: none;
+    padding: 1.9vh 2vw;
+    border: none;
+    width: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:first-of-type {
+      border-right: 1px solid lightgrey;
+    }
+  }
+}
+.Shop__Carousel-Info-Box {
+  background: white;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+  padding: 4vh 4vw 4vh 3vw;
+  box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.25),
+    0 10px 10px 0 rgba(0, 0, 0, 0.26);
+  & h3 {
+    font-size: 10px;
+    padding: 0 0 10px 0;
+  }
+  & p {
+    width: 350px;
+    font-size: 11px;
   }
 
   & button {

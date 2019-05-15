@@ -1,3 +1,12 @@
 .Shop {
   display: flex;
+
+  &__Carousel-Container {
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

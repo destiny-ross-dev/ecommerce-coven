@@ -5,13 +5,21 @@ import ShopCarousel from "../components/ShopCarousel";
 class ShopPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { carouselNum: 0 };
+    this.state = { carouselNum: 1 };
   }
+  onNumSelect = num => {
+    this.setState({ carouselNum: num });
+  };
   render() {
     return (
-      <div className="Shop">
+      <div className="Shop Page">
         <ShopSideBar />
-        <ShopCarousel carouselNum={this.state.carouselNum} />
+        <div className="Shop__Carousel-Container">
+          <ShopCarousel
+            carouselNum={this.state.carouselNum}
+            onNumSelect={this.onNumSelect}
+          />
+        </div>
       </div>
     );
   }
