@@ -4,6 +4,15 @@ import altarsImg from "../assets/aesthetic.jpeg";
 
 const carouselArray = [
   {
+    img: altarsImg,
+    header: "Coven",
+    headline: "Welcome to The Coven",
+    callToActionText: "Learn More",
+    infoHeader: "Magical Provisions for the Modern Feminist Witch",
+    infoDesc: `It's more than a shop. It's a movement. Join a workshop, explore new crafts, or shop our products. There's something here for everyone.`,
+    color: `#3C3152`
+  },
+  {
     img: lessonsImg,
     header: "Classes",
     headline: "Learn from the Elders",
@@ -13,15 +22,6 @@ const carouselArray = [
     practitioners or take classes in herbology, runology, divination and
     much more.`,
     color: `#22324c`
-  },
-  {
-    img: altarsImg,
-    header: "Coven",
-    headline: "Welcome to The Coven",
-    callToActionText: "Learn More",
-    infoHeader: "Magical Provisions for the Modern Feminist Witch",
-    infoDesc: `It's more than a shop. It's a movement. Join a workshop, explore new crafts, or shop our products. There's something here for everyone.`,
-    color: `#3C3152`
   }
 ];
 
