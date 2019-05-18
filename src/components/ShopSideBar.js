@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { NavLink as Link } from "react-router-dom";
+import { connect } from "react-router-dom";
 
 class ShopSideBar extends Component {
   constructor(props) {
@@ -6,18 +8,16 @@ class ShopSideBar extends Component {
     this.state = {};
   }
   render() {
+    let categoryLinks = this.props.categoryList.map((e, i) => {
+      return (
+        <Link to={`/shop?category=${e.category_url}`}>{e.category_name}</Link>
+      );
+    });
     return (
       <div className="Shop__Side-Bar">
         <div className="Shop__Category-Div">
           <h3 className="Shop__Category-Div-Header">CATEGORIES</h3>
-          <p>Herbs and Essential Oils</p>
-          <p>Candles</p>
-          <p>Books</p>
-          <p>Crystals and Runes</p>
-          <p>Tarot</p>
-          <p>Altars and Tools</p>
-          <p>Witchwear</p>
-          <p>Miscellaneous</p>
+          {categoryLinks}
         </div>
         <div className="Shop__Category-Div">
           <h3 className="Shop__Category-Div-Header"> CLASSES</h3>

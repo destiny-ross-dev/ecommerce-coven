@@ -16,7 +16,7 @@ class Header extends Component {
     return (
       <div className="Header">
         <div className="Header__Bar">
-          <Link className="Header__Logo Link" to="/">
+          <Link className="Header__Logo Link" to="/shop">
             <h1 className="Header__Logo">COVEN</h1>
           </Link>{" "}
           {this.props.location.pathname !== "/shop" && (
@@ -82,7 +82,9 @@ class Header extends Component {
                 new crafts, or shop our products. There's something here for
                 everyone.
               </p>
-              <button>Shop our quality products</button>
+              <Link to="/shop">
+                <button>Shop our quality products</button>
+              </Link>
             </div>
           </div>
         ) : null}

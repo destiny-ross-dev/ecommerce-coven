@@ -4,11 +4,14 @@ const {
   getInventory,
   createItem,
   updateItemById,
-  deleteItemById
+  deleteItemById,
+  getCategoryList
 } = require("./itemsController");
 
 const itemsRouter = Router();
 
+// api/items/categories
+itemsRouter.route("/categories").get(getCategoryList);
 // /api/items
 itemsRouter
   .route("/")

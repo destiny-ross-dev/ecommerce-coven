@@ -5,8 +5,13 @@
   padding: 30px 40px;
 }
 .Shop__Category-Div {
-  & p {
+  display: flex;
+  flex-direction: column;
+  & a,
+  p {
     font-size: 12px;
+    text-decoration: none;
+    color: black;
   }
 
   &--space {

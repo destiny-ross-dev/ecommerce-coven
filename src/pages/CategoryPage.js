@@ -9,18 +9,12 @@ class CategoryPage extends Component {
     this.state = {};
   }
   componentDidMount() {
-    let str = this.props.location.pathname.slice(1);
-    this.props.getCategoryList(str);
+    // this.props.getCategoryList();
   }
+
   render() {
-    let pageTitle;
-    if (this.props.location.pathname) {
-      let str = this.props.location.pathname.slice(1);
-      pageTitle = str;
-    } else {
-      pageTitle = "Unknown";
-    }
     console.log(this.props);
+    let pageTitle = this.props.categoryName;
 
     let bookList = this.props.categoryList.map((book, index) => {
       return <div key={index}>{book.book_name}</div>;
@@ -28,7 +22,8 @@ class CategoryPage extends Component {
     return (
       <div className="CategoryPage">
         <h2 className="CategoryPage__title Title">{pageTitle}</h2>
-        {bookList}
+        {/* {bookList} */}
+        <p>thing</p>
       </div>
     );
   }

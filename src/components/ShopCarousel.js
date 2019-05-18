@@ -26,6 +26,12 @@ const carouselArray = [
 ];
 
 class ShopCarousel extends Component {
+  componentDidMount() {
+    this.props.startCarousel();
+  }
+  componentWillUnmount() {
+    this.props.stopCarousel();
+  }
   render() {
     return (
       <div className="Shop__Carousel">
