@@ -14,24 +14,25 @@ export function getCategoryList(category) {
     payload: axios
       .get(`/items/categories`)
       .then(catList => {
-        console.log(catList.data);
         return catList.data;
       })
       .catch(err => console.log(err))
   };
 }
-export function getCategoryInfo(category_id) {
+export function getCategoryInfo(category_url) {
   return {
     type: GET_CAT_INFO,
-    payload: axios.get(`items/categories/${category_id}`).then(catInfo => {
-      console.log(catInfo.data);
-      return catInfo.data;
-    })
+    payload: axios
+      .get(`items/categories/${category_url}`)
+      .then(catInfo => {
+        return catInfo.data[0];
+      })
+      .catch(err => console.log(err))
   };
 }
 
 export default function itemsReducer(state = initialState, action) {
-  // console.log(action.type, action.payload);
+  console.log(action.type, action.payload);
   switch (action.type) {
     //PENDING cases
     case `${GET_CAT_LIST}_PENDING`:

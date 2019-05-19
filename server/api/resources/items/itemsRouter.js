@@ -15,7 +15,7 @@ const itemsRouter = Router();
 itemsRouter.route("/categories").get(getCategoryList);
 
 // api/items/categories/:id
-itemsRouter.route("/categories/:category_id").get(getCategoryInfo);
+itemsRouter.route("/categories/:category_url").get(getCategoryInfo);
 
 // /api/items
 itemsRouter

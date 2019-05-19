@@ -27,10 +27,9 @@ const getCategoryList = async (req, res) => {
   }
 };
 const getCategoryInfo = async (req, res) => {
-  let { category_id } = req.params;
-  console.log(category_id);
+  let { category_url } = req.params;
   try {
-    let catInfo = await req.app.get("db").items.getCategoryInfo(category_id);
+    let catInfo = await req.app.get("db").items.getCategoryInfo(category_url);
     res.status(200).send(catInfo);
   } catch (error) {
     res.status(500).send(error);

@@ -10,7 +10,9 @@ class ShopSideBar extends Component {
   render() {
     let categoryLinks = this.props.categoryList.map((e, i) => {
       return (
-        <Link to={`/shop?category=${e.category_url}`}>{e.category_name}</Link>
+        <Link to={`/shop?category=${e.category_url}`} key={e.category_id}>
+          {e.category_name}
+        </Link>
       );
     });
     return (
