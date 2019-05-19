@@ -20,18 +20,28 @@ const deleteItemById = async (req, res) => {
 
 const getCategoryList = async (req, res) => {
   try {
-    let catList = await req.app.get("db").items.getCategoryList();
+    let catList = await req.app.get("db").items.getCategoryListNav();
     res.status(200).send(catList);
   } catch (error) {
     res.status(500).send(error);
   }
 };
-
+const getCategoryInfo = async (req, res) => {
+  let { category_id } = req.params;
+  console.log(category_id);
+  try {
+    let catInfo = await req.app.get("db").items.getCategoryInfo(category_id);
+    res.status(200).send(catInfo);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
 module.exports = {
   getItem,
   getInventory,
   createItem,
   updateItemById,
   deleteItemById,
-  getCategoryList
+  getCategoryList,
+  getCategoryInfo
 };

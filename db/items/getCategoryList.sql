@@ -1,1 +1,0 @@
-select category_id, category_name, category_url, category_description from item_categories ORDER BY category_name ASC;

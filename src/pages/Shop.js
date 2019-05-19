@@ -9,7 +9,12 @@ import { getCategoryList } from "../ducks/itemsReducer";
 class ShopPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { carouselNum: 0, query: "", queryValue: "" };
+    this.state = {
+      carouselNum: 0,
+      query: "",
+      queryValue: "",
+      categoryInfo: {}
+    };
   }
   onNumSelect = num => {
     this.setState({ carouselNum: num });
@@ -19,23 +24,36 @@ class ShopPage extends Component {
     if (this.state.carouselNum === 1) {
       this.setState({ carouselNum: 0 });
     } else {
-      this.setState(
-        {
-          carouselNum: this.state.carouselNum + 1
-        },
-        () => this.setState({ changing: false })
-      );
+      this.setState({
+        carouselNum: this.state.carouselNum + 1
+      });
     }
   };
   componentDidMount() {
-    this.props.getCategoryList();
-    this.getSearchQuery();
+    console.log("..mounting");
+    this.loadPage();
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.search !== this.props.location.search) {
+      this.loadPage();
+    }
+  }
+
+  loadPage = () => {
+    this.getSearchQuery();
+    if (this.props.categoryList.length == 0) {
+      this.props.getCategoryList().then(() => this.getCatInfoForCatPage());
+    } else {
+      this.getCatInfoForCatPage();
+    }
+  };
+
   startCarousel = () => {
     this.setState({
       timerId: setInterval(this.handleCarouselRotation, 3000)
     });
   };
+
   stopCarousel = () => {
     clearInterval(this.state.timerId);
   };
@@ -48,8 +66,16 @@ class ShopPage extends Component {
     this.setState({ query: queryKey, queryValue: queryValue });
   };
 
+  getCatInfoForCatPage = () => {
+    let { categoryList } = this.props;
+    let categoryInfo = categoryList.filter(
+      category => category.category_url == this.state.queryValue
+    );
+
+    this.setState({ categoryInfo: categoryInfo[0] });
+  };
+
   render() {
-    console.log(this.props);
     return (
       <div className="Shop Page">
         <ShopSideBar categoryList={this.props.categoryList} />
@@ -64,7 +90,10 @@ class ShopPage extends Component {
           </div>
         ) : (
           <div>
-            <CategoryPage categoryName={this.state.queryValue} />
+            <CategoryPage
+              categoryUrl={this.state.queryValue}
+              categoryInfo={this.state.categoryInfo}
+            />
           </div>
         )}
       </div>

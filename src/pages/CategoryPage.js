@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getCategoryList } from "../ducks/itemsReducer";
+import { getCategoryInfo } from "../ducks/itemsReducer";
 
 class CategoryPage extends Component {
   constructor(props) {
@@ -9,19 +9,20 @@ class CategoryPage extends Component {
     this.state = {};
   }
   componentDidMount() {
-    // this.props.getCategoryList();
+    
   }
-
+  
   render() {
-    console.log(this.props);
-    let pageTitle = this.props.categoryName;
+    console.log(this.props)
+    let { categoryInfo } = this.props;
+    let pageTitle = categoryInfo.category_name;
+    // let pageDesc = categoryInfo.category_desc;
 
-    let bookList = this.props.categoryList.map((book, index) => {
-      return <div key={index}>{book.book_name}</div>;
-    });
     return (
       <div className="CategoryPage">
-        <h2 className="CategoryPage__title Title">{pageTitle}</h2>
+        <h2 className="CategoryPage__title Title">
+          {this.props.categoryInfo.category_name}
+        </h2>
         {/* {bookList} */}
         <p>thing</p>
       </div>
@@ -31,7 +32,8 @@ class CategoryPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    categoryList: state.itemsReducer.categoryList,
+    categoryInfo: state.itemsReducer.categoryInfo,
+
     loading: state.itemsReducer.isLoading,
     error: state.itemsReducer.error
   };
@@ -40,6 +42,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { getCategoryList }
+    { getCategoryInfo }
   )(CategoryPage)
 );

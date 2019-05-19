@@ -1,0 +1,1 @@
+select category_id, category_name, category_url from item_categories ORDER BY category_name ASC;
