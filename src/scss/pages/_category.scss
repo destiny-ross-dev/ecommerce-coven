@@ -1,0 +1,21 @@
+.CategoryPage {
+  flex-grow: 1;
+
+  width: 100%;
+  margin: 0 auto;
+  &__banner {
+    width: 100%;
+    margin: 0 auto;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__title {
+    width: 100%;
+    border-bottom: 1px solid black;
+    text-align: start;
+    padding: 5px;
+  }
+}

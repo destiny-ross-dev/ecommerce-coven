@@ -1,0 +1,14 @@
+.Product {
+  height: 250px;
+  width: 225px;
+
+  padding: 5px 3px;
+  text-align: center;
+  margin: 2vh 0;
+  box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.25),
+    0 10px 10px 0 rgba(0, 0, 0, 0.26);
+}
+.CardContainer {
+  display: flex;
+  justify-content: space-between;
+}

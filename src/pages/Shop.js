@@ -72,7 +72,7 @@ class ShopPage extends Component {
             />
           </div>
         ) : (
-          <div>
+          <div className="Shop__Container">
             {this.state.query === "category" && (
               <CategoryPage
                 categoryUrl={this.state.queryValue}

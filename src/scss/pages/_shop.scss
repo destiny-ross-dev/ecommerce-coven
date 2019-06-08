@@ -1,6 +1,11 @@
 .Shop {
   display: flex;
-
+  background: #efefef;
+  &__Container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2vh 2vw;
+  }
   &__Carousel-Container {
     width: 100%;
     height: calc(100vh - 60px);
